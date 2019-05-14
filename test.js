@@ -56,13 +56,13 @@ for(idx =  iii ; idx > 1059; idx--) {
       .then(function(html){
         //success!
         //console.log(html);
-        console.log("connected + " + idx1);
+        //console.log("connected + " + idx1);
         var title = $('.tit_view > dd', html).text();
         var date = $('.info_view2 > dd:nth-of-type(2n)', html).text();
         date = date.substring(4,10) + ', ' + date.substring(24) ;
         date1 = new Date(Date.parse(date));
         if(date1 < new Date("Jan 1, 2019")) {
-          console.log("skip [" + date + "]");
+          //console.log("skip [" + date + "]");
           return;
         }
         var pdf_url = 'http://www.itfind.or.kr'+ $('.file_view > dd > a', html)[0].attribs.href;
@@ -85,7 +85,8 @@ for(idx =  iii ; idx > 1059; idx--) {
             tmpResolve();
           });
         } else {
-          console.log("already exist [" + idx1 + "] : " + path);
+          console.log("already exist [" + idx1 + "]");
+          //console.log("already exist [" + idx1 + "] : " + path);
           tmpResolve();
         }
 
@@ -104,14 +105,14 @@ for(idx =  iii ; idx > 1059; idx--) {
 }
 
 // 개별 파일 다운로드 
-for(idx =  7750 ; idx > 7630; idx--) {    // 7724(20190501) 7718(20190424) 7712(20190417) 7700(20190402) 7689(20190319) // 7683 // 7665(2019.02.20)
+for(idx =  7750 ; idx > 7720; idx--) {    // 7724(20190501) 7718(20190424) 7712(20190417) 7700(20190402) 7689(20190319) // 7683 // 7665(2019.02.20)
   (function(idx1) {
     prom = prom.then(function() {
     return rp(url + idx1)
       .then(function(html){
         //success!
         //console.log(html);
-        console.log("connected + " + idx1);
+        //console.log("connected + " + idx1);
         var title = $('.tit_view > dd', html).text();
         var date = $('.info_view2 > dd:nth-of-type(2n)', html).text();
         date = date.substring(4,10) + ', ' + date.substring(24) ;
@@ -137,7 +138,7 @@ for(idx =  7750 ; idx > 7630; idx--) {    // 7724(20190501) 7718(20190424) 7712(
           var msg = date1.yyyymmdd() + "\t" + title + '\t""\t""\t""\t""\t' + pdf_url + '\n';
           fs.appendFileSync('주간기술동향_제목_link.txt', msg, 'utf8');
         } else {
-          console.log("already exist [" + idx1 + "] : " + path);
+          console.log("already exist [" + idx1 + "]");
           tmpResolve();
         }
 
