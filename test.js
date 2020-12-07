@@ -1,6 +1,5 @@
 const rp = require('request-promise');
 const $ = require('cheerio');
-const moment = require('moment');
 const download = require('download-file');
 var fs = require('fs');
 
@@ -44,7 +43,7 @@ fs.writeFileSync(destPath + 'IITP 주간기술동향_요약(통합)/2019년_주�
 fs.writeFileSync(destPath + 'IITP 주간기술동향_요약(TTS)/2019년_주간기술동향_TTS.txt', "", 'utf8');
 fs.writeFileSync('주간기술동향_제목_link.txt', "", 'utf8');
 
-var iii = 1156; // 2020-11-18
+var iii = 1158; // 2020-12-02
 
 // 통합 파일 다운로드
 for(var idx =  iii ; idx > 1135; idx--) {
@@ -105,7 +104,7 @@ for(var idx =  iii ; idx > 1135; idx--) {
 }
 
 // 개별 파일 다운로드
-for(var idx =  7974 ; idx < 8050; idx++) {    // 8044(20201118) 8036(20201103) 8020(20201007) 7992(20200901) 7975(20200722) 7928(20200428) 7724(20190501) 7718(20190424) 7712(20190417) 7700(20190402) 7689(20190319) // 7683 // 7665(2019.02.20)
+for(var idx =  7974 ; idx < 8055; idx++) {    // 8052(20201202) 8044(20201118) 8036(20201103) 8020(20201007) 7992(20200901) 7975(20200722) 7928(20200428) 7724(20190501) 7718(20190424) 7712(20190417) 7700(20190402) 7689(20190319) // 7683 // 7665(2019.02.20)
   (function(idx1) {
     prom = prom.then(function() {
     return rp(url + idx1)
